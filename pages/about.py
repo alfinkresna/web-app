@@ -9,6 +9,10 @@ def about():
     {
         visibility: hidden;
     }
+     .viewerBadge_Link__1S137
+    {
+        visibility: hidden;
+    }
     </style>
     '''
 

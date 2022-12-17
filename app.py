@@ -2,7 +2,7 @@ import streamlit as st
 from whois import whois
 
 st.set_page_config(
-    page_title='Web Info', initial_sidebar_state="expanded"
+    page_title='Web Info'
 )
 
 
@@ -12,6 +12,10 @@ def sc():
     #MainMenu {visibility: hidden;}
     #header {visibility: hidden;}
     .css-1lsmgbg.egzxvld0
+    {
+        visibility: hidden;
+    }
+    .viewerBadge_Link__1S137
     {
         visibility: hidden;
     }
