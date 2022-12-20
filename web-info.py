@@ -5,17 +5,12 @@ st.set_page_config(
     page_title='Web Info'
 )
 
-
 def sc():
     hide = '''
     <style>
     #MainMenu {visibility: hidden;}
     #header {visibility: hidden;}
     .css-1lsmgbg.egzxvld0
-    {
-        visibility: hidden;
-    }
-    .viewerBadge_Link__1S137
     {
         visibility: hidden;
     }
@@ -41,7 +36,8 @@ def main():
     submit = form.form_submit_button(label='Check')
 
     with st.spinner("Tunggu Sebentar..."):
-        st.write(f'''
+        if submit:
+            st.write(f'''
     Domain ID : {whois(f).domain_id}
 
     Nama Domain : {whois(f).domain_name}
