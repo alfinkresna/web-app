@@ -1,5 +1,9 @@
 import streamlit as st
 
+st.set_page_config(
+    page_title='Web App'
+)
+
 def about():
     hide = '''
     <style>
@@ -32,4 +36,8 @@ def about():
     ''', unsafe_allow_html=True)
 
 
-about()
+def main():
+    about()
+
+if __name__.__eq__("__main__"):
+    main()

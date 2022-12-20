@@ -2,11 +2,10 @@ import streamlit as st
 from whois import whois
 
 st.set_page_config(
-    page_title='Web Info'
+    page_title='Web App'
 )
 
-def sc():
-    hide = '''
+hide = '''
     <style>
     #MainMenu {visibility: hidden;}
     #header {visibility: hidden;}
@@ -16,97 +15,96 @@ def sc():
     }
     </style>
     '''
-    st.markdown(hide, unsafe_allow_html=True)
+st.markdown(hide, unsafe_allow_html=True)
     
-    st.markdown('''
+st.markdown('''
     <h1 style='text-align: center; color: #EB0869; font-size: 35px; font-weight: 100;'>
     --- Website Info ---
     </h1>
     ''', unsafe_allow_html=True)
 
+class WebInfo:
+    def __init__(self):
+        self.form = st.form(key='form')
+        self.domain_name = self.form.text_input(label='Masukkan Nama Domain Web (Contoh : www.google.com)')
+        self.submit = self.form.form_submit_button(label='Check')
 
-def main():
+    def display_info(self):
+        with st.spinner("Tunggu Sebentar..."):
+            if self.submit:
+                st.write(f'''
+    Domain ID : {whois(self.domain_name).domain_id}
 
-    sc()
+    Nama Domain : {whois(self.domain_name).domain_name}
 
-    form = st.form(key='form')
+    Tanggal Pembuatan : {whois(self.domain_name).creation_date}
 
-    f = form.text_input(label='Masukkan Nama Domain Web (Contoh : www.google.com)')
+    Tanggal Diperbarui : {whois(self.domain_name).updated_date}
 
-    submit = form.form_submit_button(label='Check')
+    Tanggal Kedaluwarsa : {whois(self.domain_name).expiration_date}
 
-    with st.spinner("Tunggu Sebentar..."):
-        if submit:
-            st.write(f'''
-    Domain ID : {whois(f).domain_id}
+    Nama : {whois(self.domain_name).name}
 
-    Nama Domain : {whois(f).domain_name}
+    Email : {whois(self.domain_name).emails}
 
-    Tanggal Pembuatan : {whois(f).creation_date}
+    Organisasi : {whois(self.domain_name).org}
 
-    Tanggal Diperbarui : {whois(f).updated_date}
+    Alamat : {whois(self.domain_name).address}
 
-    Tanggal Kedaluwarsa : {whois(f).expiration_date}
+    Kota : {whois(self.domain_name).city}
 
-    Nama : {whois(f).name}
+    Negara Bagian : {whois(self.domain_name).state}
 
-    Email : {whois(f).emails}
+    Negara : {whois(self.domain_name).country}
 
-    Organisasi : {whois(f).org}
+    Dnssec : {whois(self.domain_name).dnssec}
 
-    Alamat : {whois(f).address}
+    Nama Server : {whois(self.domain_name).name_servers}
 
-    Kota : {whois(f).city}
+    Referral URL : {whois(self.domain_name).referral_url}
 
-    Negara Bagian : {whois(f).state}
+    Status : {whois(self.domain_name).status}
 
-    Negara : {whois(f).country}
+    Registrar : {whois(self.domain_name).registrar}
 
-    Dnssec : {whois(f).dnssec}
+    Kota Registrar : {whois(self.domain_name).registrar_city}
 
-    Nama Server : {whois(f).name_servers}
+    Kode Pos Registrar : {whois(self.domain_name).registrar_postal_code}
 
-    Referral URL : {whois(f).referral_url}
+    Negara Registrar : {whois(self.domain_name).registrar_country}
 
-    Status : {whois(f).status}
+    Nomor Telephone Registrar : {whois(self.domain_name).registrar_phone}
 
-    Registrar : {whois(f).registrar}
+    Email Registrar : {whois(self.domain_name).registrar_email}
 
-    Kota Registrar : {whois(f).registrar_city}
+    ID Registrant : {whois(self.domain_name).registrant_id}
 
-    Kode Pos Registrar : {whois(f).registrar_postal_code}
+    Nama Registrant : {whois(self.domain_name).registrant_name}
 
-    Negara Registrar : {whois(f).registrar_country}
+    Organisasi Registrant : {whois(self.domain_name).registrant_org}
 
-    Nomor Telephone Registrar : {whois(f).registrar_phone}
+    Alamat Registrant : {whois(self.domain_name).registrant_address}
 
-    Email Registrar : {whois(f).registrar_email}
+    Alamat 2 : {whois(self.domain_name).registrant_address2}
 
-    ID Registrant : {whois(f).registrant_id}
+    Alamat 3 : {whois(self.domain_name).registrant_address3}
 
-    Nama Registrant : {whois(f).registrant_name}
+    Kota Registrant : {whois(self.domain_name).registrant_city}
 
-    Organisasi Registrant : {whois(f).registrant_org}
+    Negara Registrant : {whois(self.domain_name).registrant_country}
 
-    Alamat Registrant : {whois(f).registrant_address}
+    Kode Pos Registrant : {whois(self.domain_name).registrant_postal_code}
 
-    Alamat 2 : {whois(f).registrant_address2}
+    Nomor Telephone Registrant : {whois(self.domain_name).registrant_phone}
 
-    Alamat 3 : {whois(f).registrant_address3}
+    Registrant Fax : {whois(self.domain_name).registrant_fax}
 
-    Kota Registrant : {whois(f).registrant_city}
-
-    Negara Registrant : {whois(f).registrant_country}
-
-    Kode Pos Registrant : {whois(f).registrant_postal_code}
-
-    Nomor Telephone Registrant : {whois(f).registrant_phone}
-
-    Registrant Fax : {whois(f).registrant_fax}
-
-    Email Registrant : {whois(f).registrant_email}
+    Email Registrant : {whois(self.domain_name).registrant_email}
     ''')
 
+def main():
+    web_info = WebInfo()
+    web_info.display_info()
 
 if __name__ == "__main__" :
     main()
