@@ -2,7 +2,7 @@ import streamlit as st
 from whois import whois
 
 st.set_page_config(
-    page_title='Web App', hide_streamlit_style=True
+    page_title='Web App'
 )
 
 hide = '''
