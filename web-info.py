@@ -1,7 +1,9 @@
 import streamlit as st
 from whois import whois
 
-st.beta_set_page_config(page_title='Web App', hide_streamlit_style=True)
+st.set_page_config(
+    page_title='Web App', hide_streamlit_style=True
+)
 
 hide = '''
     <style>
