@@ -33,12 +33,12 @@ def about():
     st.markdown(
     '<center><a href="https://www.instagram.com/alfin.kresna_">'
     '<img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" '
-    'style="width: 30px; height: 30px; margin: 10px;"></a></center>',
+    'style="width: 32px; height: 32px; margin: 10px;"></a></center>',
     unsafe_allow_html=True,)
 
     st.markdown(
     '<center><a href="https://www.instagram.com/alfin.kresna_" style="font-size: 16px;">'
-    'My Instagram</a></center>',
+    'Follow me on Instagram</a></center>',
     unsafe_allow_html=True,)
 
 def main():
