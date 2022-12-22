@@ -27,13 +27,19 @@ def about():
     <p style='text-align: center;'>
     Website ini dibuat hanya untuk test
     </p>
-
-    <center> <a href="https://www.instagram.com/alfin.kresna_">
-    My Instagram
-    </a>
-    </center>
     </div>
     ''', unsafe_allow_html=True)
+
+    st.markdown(
+    '<a href="https://www.instagram.com/alfin.kresna_">'
+    '<img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" '
+    'style="width: 32px; height: 32px; margin: 10px;"></a>',
+    unsafe_allow_html=True,)
+
+    st.markdown(
+    '<a href="https://www.instagram.com/alfin.kresna_" style="font-size: 16px;">'
+    'Follow us on Instagram</a>',
+    unsafe_allow_html=True,)
 
 
 def main():
