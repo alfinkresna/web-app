@@ -2,7 +2,7 @@ import streamlit as st
 from whois import whois
 
 st.set_page_config(
-    page_title='Web App'
+    page_title='Web App', initial_sidebar_state="expanded"
 )
 
 hide = '''
